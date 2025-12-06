@@ -1,0 +1,29 @@
+datasource db {
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String         @id @default(cuid())
+  email         String         @unique
+  password      String
+  plan          String         @default("free")
+  freeCvUsed    Boolean        @default(false)
+  freePostUsed  Boolean        @default(false)
+  freeEmailUsed Boolean        @default(false)
+  createdAt     DateTime       @default(now())
+  updates       Optimization[]
+}
+
+model Optimization {
+  id         String   @id @default(cuid())
+  userId     String
+  type       String
+  inputText  String
+  outputText String
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id])
+}
