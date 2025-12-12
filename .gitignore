@@ -1,5 +1,30 @@
+# Node.js
 node_modules/
-dist/
-.env
-.env.*
+npm-debug.log*
+yarn-error.log*
+
+# Next.js
+.next/
+out/
+
+# Logs
 logs/
+*.log
+
+# Env
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Build
+dist/
+build/
+
+# OS files
+.DS_Store
+
+# Temporary
+tmp/
+temp/
