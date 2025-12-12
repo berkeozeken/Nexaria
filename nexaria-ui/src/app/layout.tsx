@@ -32,16 +32,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-white dark:bg-black`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-        >
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+          
           {/* GLOBAL NAVBAR */}
           <header className="border-b border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-black/60 backdrop-blur-sm sticky top-0 z-50">
             <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
               
-              {/* Logo */}
+              {/* LOGO */}
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/Nexaria-Logo.png"
@@ -49,7 +46,7 @@ export default function RootLayout({
                   width={32}
                   height={32}
                   priority
-                  className="rounded-md bg-transparent"
+                  className="rounded-md"
                 />
                 <span className="font-semibold tracking-tight text-lg">
                   Nexaria
@@ -58,15 +55,27 @@ export default function RootLayout({
 
               {/* NAV LINKS */}
               <nav className="flex items-center gap-4 text-sm text-zinc-600 dark:text-zinc-300">
-                <Link href="/optimize" className="hover:text-zinc-900 dark:hover:text-zinc-50">
+                
+                <Link
+                  href="/optimize"
+                  className="hover:text-zinc-900 dark:hover:text-zinc-50"
+                >
                   Optimize
                 </Link>
-                <a href="/#features" className="hover:text-zinc-900 dark:hover:text-zinc-50">
+
+                <Link
+                  href="/#features"
+                  className="hover:text-zinc-900 dark:hover:text-zinc-50"
+                >
                   Features
-                </a>
-                <a href="/#pricing" className="hover:text-zinc-900 dark:hover:text-zinc-50">
+                </Link>
+
+                <Link
+                  href="/#pricing"
+                  className="hover:text-zinc-900 dark:hover:text-zinc-50"
+                >
                   Pricing
-                </a>
+                </Link>
 
                 <ThemeToggle />
 
@@ -82,7 +91,10 @@ export default function RootLayout({
           </header>
 
           {/* PAGE CONTENT */}
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            {children}
+          </main>
+
         </ThemeProvider>
       </body>
     </html>
